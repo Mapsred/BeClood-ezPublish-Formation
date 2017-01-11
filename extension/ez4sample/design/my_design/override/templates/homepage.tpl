@@ -34,5 +34,36 @@
 </div>
 
 <div class="contacts">
+    {def $annuaire_de_contact=fetch( 'content', 'list', hash( 'parent_node_id', $node.node_id,
+    'class_filter_type',  'include',
+    'depth', 1,
+    'class_filter_array', array( 'annuaire_de_contact' )
+    ) )}
 
+    {if $annuaire_de_contact|count}
+        {set $annuaire_de_contact = $annuaire_de_contact.0}
+        {def $entites=fetch( 'content', 'list', hash( 'parent_node_id', $annuaire_de_contact.node_id,
+        'class_filter_type',  'include',
+        'depth', 1,
+        'class_filter_array', array( 'entite' )
+        ) )}
+
+        {if $entites|count}
+            {foreach $entites as $entite}
+                <h1>{attribute_view_gui attribute=$entite.data_map.intitule}</h1>
+                {def $contacts=fetch( 'content', 'list', hash( 'parent_node_id', $entite.node_id,
+                'class_filter_type',  'include',
+                'depth', 1,
+                'class_filter_array', array( 'contact' )
+                ) )}
+                {if $contacts|count}
+                    {foreach $contacts as $contact }
+                        {attribute_view_gui attribute=$contact.data_map.prenom}
+                        {attribute_view_gui attribute=$contact.data_map.nom}
+                        <br>
+                    {/foreach}
+                {/if}
+            {/foreach}
+        {/if}
+    {/if}
 </div>
