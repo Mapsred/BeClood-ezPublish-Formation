@@ -53,7 +53,7 @@ AdminEmail=francois.mathieu@beclood.com
 EmailSender=
 
 [DebugSettings]
-DebugOutput=disabled
+DebugOutput=enabled
 DebugRedirection=disabled
 
 [TemplateSettings]

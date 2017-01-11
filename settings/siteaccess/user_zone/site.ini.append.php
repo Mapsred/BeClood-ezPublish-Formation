@@ -9,6 +9,7 @@ Password=beclood
 Database=ezpublish_4
 Charset=
 Socket=disabled
+SQLOutput=disabled
 
 [InformationCollectionSettings]
 EmailReceiver=
@@ -28,7 +29,8 @@ RelatedSiteAccessList[]=admin_zone
 ShowHiddenNodes=false
 
 [DesignSettings]
-SiteDesign=plain_site
+SiteDesign=my_design
+AdditionalSiteDesignList[]=plain_site
 AdditionalSiteDesignList[]=base
 
 [RegionalSettings]
@@ -47,4 +49,13 @@ TranslationList=eng-GB
 [MailSettings]
 AdminEmail=francois.mathieu@beclood.com
 EmailSender=
+
+[DebugSettings]
+DebugOutput=enabled
+DebugRedirection=disabled
+
+[TemplateSettings]
+Debug=disabled
+ShowXHTMLCode=enabled
+ShowUsedTemplates=enabled
 */ ?>

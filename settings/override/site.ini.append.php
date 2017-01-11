@@ -10,6 +10,7 @@ ActiveExtensions[]=ezie
 ActiveExtensions[]=ezoe
 ActiveExtensions[]=ezodf
 ActiveExtensions[]=ezprestapiprovider
+ActiveExtensions[]=ez4sample
 
 [Session]
 SessionNameHandler=custom
