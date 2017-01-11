@@ -1,4 +1,49 @@
-eZ Publish 4 README
+#Consigne
+1 - Créer les classes. Thème; Fiche Pratique, Contact, conteneurs et contenu.
+Théme : Intitulé
+Fiche Pratique : Intitulé, Description (Bloc XML), Lien Externe, Image, Relation d'objet (Contact)
+Entité : Intitulé, Adresse (Bloc de texte)
+Contact : Nom, Prenom, Photo
+
+1 bis - Créer une extension qui déclare un design
+
+2 - Homepage
+  2 colonnes : 
+	1ere liste des fiches pratiques classées par thème
+	2nde liste de contacts classés par entité
+		A utiliser ici :
+			fetch counter list
+			attribute view gui
+			node view gui
+			liens internes (|ezurl)
+
+3 - Vue full d'un contact avec description de l'entité
+
+4 - Vue full d'une Fiche Pratique avec réaffichage des autres Fiches Pratiques d'un thème.
+Colonne dans ce thème avec la Fiche Pratique en cours de lecture surlignée et non cliquable.
+
+5 - Surcharger le datatype ezstring (ligne de texte) pour que toutes les lignes de texte passent en gras.
+
+6 - Créer une feuille de style apportée au sein de la page layout et patché (ezscore)
+
+7 - Créer un module PHP. entity/list
+Afficher les entités qui sont des contacts rattachés.
+		A utiliser ici :
+			PHP. Fetch PHP .
+			Filtre des entités.
+			Renvoi d'un template
+
+8 - Créer une section sur un thème : "protected"
+
+9 - Créer un rôle et permission qui a le droit de lire sur "protected"
+
+10 - Créer un utilisateur et lui affecter le rôle créé précédemment.
+
+11 - Se connecter sur le front (faire un lien sur /user/login°
+
+12 - Sur Fiche Pratique : Afficher le nom et prénom connecté
+
+#eZ Publish 4 README
 
 
 What is eZ Publish?
