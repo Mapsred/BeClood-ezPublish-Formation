@@ -1,0 +1,12 @@
+var/cache
+var/log
+var/plain_site
+!var/plain_site/storage
+sessions
+vendor/*
+.buildpath
+.project
+.settings
+
+web/*
+.idea
