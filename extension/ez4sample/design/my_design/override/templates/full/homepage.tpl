@@ -14,7 +14,9 @@
         ) )}
         {if $themes|count}
             {foreach $themes as $theme }
-                <h1>{attribute_view_gui attribute=$theme.data_map.intitule}</h1>
+                <h1>
+                    <a href="{$theme.url_alias|ezurl('no')}">{attribute_view_gui attribute=$theme.data_map.intitule}</a>
+                </h1>
                 {def $fiches_pratiques=fetch( 'content', 'list', hash( 'parent_node_id', $theme.node_id,
                 'class_filter_type',  'include',
                 'depth', 1,
@@ -23,7 +25,9 @@
 
                 {if $fiches_pratiques|count}
                     {foreach $fiches_pratiques as $fiche_pratique }
-                        {attribute_view_gui attribute=$fiche_pratique.data_map.intitule}
+                        <a href="{$fiche_pratique.url_alias|ezurl('no')}">
+                            {attribute_view_gui attribute=$fiche_pratique.data_map.intitule}
+                        </a>
                         <br>
                     {/foreach}
                 {/if}
@@ -50,7 +54,11 @@
 
         {if $entites|count}
             {foreach $entites as $entite}
-                <h1>{attribute_view_gui attribute=$entite.data_map.intitule}</h1>
+                <h1>
+                    <a href="{$entite.url_alias|ezurl('no')}">
+                        {attribute_view_gui attribute=$entite.data_map.intitule}
+                    </a>
+                </h1>
                 {def $contacts=fetch( 'content', 'list', hash( 'parent_node_id', $entite.node_id,
                 'class_filter_type',  'include',
                 'depth', 1,
@@ -58,7 +66,7 @@
                 ) )}
                 {if $contacts|count}
                     {foreach $contacts as $contact }
-                        {$contact.name|wash}
+                        <a href="{$contact.url_alias|ezurl('no')}">{$contact.name|wash}</a>
                         <br>
                     {/foreach}
                 {/if}

@@ -9,7 +9,7 @@
     <ul class="left-column">
         {foreach $fiches as $fiche}
             {if $fiche.node_id|eq($node.node_id)}
-                <li>{attribute_view_gui attribute=$fiche.data_map.intitule} ||| {$fiche.name|wash}</li>
+                <li>{$fiche.name|wash}</li>
             {else}
                 <li>
                     <a href="{$fiche.url_alias|ezurl('no')}">

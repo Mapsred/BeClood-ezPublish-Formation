@@ -1,0 +1,1 @@
+<b>{$attribute.data_text|wash}</b>
