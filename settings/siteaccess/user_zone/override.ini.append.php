@@ -21,6 +21,10 @@ MatchFile=full/fiche_pratique.tpl
 Subdir=templates
 Match[class_identifier]=fiche_pratique
 
-
+[line_fiche_pratique]
+Source=node/view/line.tpl
+MatchFile=line/fiche_pratique.tpl
+Subdir=templates
+Match[class_identifier]=fiche_pratique
 
 */ ?>
