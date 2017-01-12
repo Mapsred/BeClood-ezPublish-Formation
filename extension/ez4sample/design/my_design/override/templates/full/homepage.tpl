@@ -22,14 +22,13 @@
                         {def $fiches_pratiques=fetch( 'content', 'list', hash( 'parent_node_id', $theme.node_id,
                         'class_filter_type',  'include',
                         'depth', 1,
+                        'load_data_map', false(),
                         'class_filter_array', array( 'fiche_pratique' )
                         ) )}
 
                         {if $fiches_pratiques|count}
                             {foreach $fiches_pratiques as $fiche_pratique }
-                                <a href="{$fiche_pratique.url_alias|ezurl('no')}">
-                                    {attribute_view_gui attribute=$fiche_pratique.data_map.intitule}
-                                </a>
+                                {node_view_gui view='line' content_node=$fiche_pratique}
                                 <br>
                             {/foreach}
                         {/if}
