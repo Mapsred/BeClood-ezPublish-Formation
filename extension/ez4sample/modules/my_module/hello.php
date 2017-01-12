@@ -1,55 +1,46 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: francois
- * Date: 12/01/17
- * Time: 11:53
- */
+$tpl = eZTemplate::factory();
+$entitiesToDisplay = [];
 
-$Name = '';
-$UpCase = false;
-$Offset = 0;
-if (isset($Params['name']) && trim($Params['name']) != '') {
-    $Name = $Params['name'];
-}
-if (isset($Params['upcase']) && $Params['upcase']) {
-    $UpCase = true;
-}//pour les unorder_params, on utilise le nom interne
-if (isset($Params['Offset']) && $Params['Offset']) {
-    $Offset = $Params['Offset'];
-}
-
-
+/** @var eZContentObjectTreeNode $annuaire_de_contact */
 $annuaire_de_contact = eZContentObjectTreeNode::subTreeByNodeID(
     ['ClassFilterType' => 'include', 'Depth' => 1, 'ClassFilterArray' => ['annuaire_de_contact']], 2
 );
-if ($annuaire_de_contact) {
+
+if ($annuaire_de_contact && is_array($annuaire_de_contact)) {
     $annuaire_de_contact = $annuaire_de_contact[0];
 
     $entites = eZContentObjectTreeNode::subTreeByNodeID(
-        ['ClassFilterType' => 'include', 'Depth' => 1, 'ClassFilterArray' => ['entite']], $annuaire_de_contact->NodeID
+        ['ClassFilterType' => 'include', 'Depth' => 1, 'ClassFilterArray' => ['entite']], $annuaire_de_contact->attribute("node_id")
     );
 
     if ($entites) {
+        /** @var eZContentObjectTreeNode $entite */
         foreach ($entites as $entite) {
-            echo sprintf("<h1>%s</h1>", $entite->Name);
+            $dataMap = $entite->attribute("data_map");
+            /** @var eZContentObjectTreeNode $intitule */
+            $intitule = $dataMap["intitule"];
+            $intitule = $intitule->attribute("content");
+            $url = $entite->attribute("url_alias");
+            eZURI::transformURI($url);
+            $entitiesToDisplay[] = ["name" => $intitule, "url" => $url];
+
+//            echo sprintf("<h1><a href='%s'>%s</a></h1>",$url, $entite->Name);
             $contacts = eZContentObjectTreeNode::subTreeByNodeID(
-                ['ClassFilterType' => 'include', 'Depth' => 1, 'ClassFilterArray' => ['contact']], $entite->NodeID
+                ['ClassFilterType' => 'include', 'Depth' => 1, 'ClassFilterArray' => ['contact']], $entite->attribute("node_id")
             );
             if ($contacts) {
+                /** @var eZContentObjectTreeNode $contact */
                 foreach ($contacts as $contact) {
-                    echo sprintf("<p>%s</p>", $contact->Name);
+                    $url = $contact->pathWithNames();
+                    eZURI::transformURI($url);
+//                    echo sprintf("<p><a href='%s'>%s</a></p>",$url, $contact->Name);
                 }
             }
         }
-
     }
 }
 
+$tpl->setVariable("entityList", $entitiesToDisplay);
 
-/*
-
-
-
-
- */
+$Result["content"] = $tpl->fetch("design:my_module/hello.tpl");
