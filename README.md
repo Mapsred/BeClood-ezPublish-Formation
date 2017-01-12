@@ -17,6 +17,10 @@ Contact : Nom, Prenom, Photo
 			node view gui
 			liens internes (|ezurl)
 
+2 bis - Faire le lien sur le contact pour aller directement sur la vue full du contact
+	Faire un node view gui sur le contact avec la vue "line"
+
+
 3 - Vue full d'un contact avec description de l'entité
 
 4 - Vue full d'une Fiche Pratique avec réaffichage des autres Fiches Pratiques d'un thème.
@@ -24,10 +28,10 @@ Colonne dans ce thème avec la Fiche Pratique en cours de lecture surlignée et 
 
 5 - Surcharger le datatype ezstring (ligne de texte) pour que toutes les lignes de texte passent en gras.
 
-6 - Créer une feuille de style apportée au sein de la page layout et patché (ezscore)
+6 - Créer une feuille de style apportée au sein de la page layout et patché (ezjscore)
 
 7 - Créer un module PHP. entity/list
-Afficher les entités qui sont des contacts rattachés.
+Afficher les entités qui ont des contacts rattachés.
 		A utiliser ici :
 			PHP. Fetch PHP .
 			Filtre des entités.
