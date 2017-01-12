@@ -3,14 +3,14 @@
 
 <head>
 
-{include uri="design:page_head.tpl"}
-
+    {include uri="design:page_head.tpl"}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div>
 
-{$module_result.content}
+    {$module_result.content}
 
 </div>
 

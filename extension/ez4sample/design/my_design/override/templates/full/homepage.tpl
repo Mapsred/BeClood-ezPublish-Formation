@@ -58,8 +58,7 @@
                 ) )}
                 {if $contacts|count}
                     {foreach $contacts as $contact }
-                        {attribute_view_gui attribute=$contact.data_map.prenom}
-                        {attribute_view_gui attribute=$contact.data_map.nom}
+                        {$contact.name|wash}
                         <br>
                     {/foreach}
                 {/if}

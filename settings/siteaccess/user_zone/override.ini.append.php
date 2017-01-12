@@ -3,21 +3,24 @@
 ########################################################################################################################
                                         ########### OVERRIDE VUE FULL ###########
 ########################################################################################################################
-[homepage]
+[full_homepage]
 Source=node/view/full.tpl
-MatchFile=homepage.tpl
+MatchFile=full/homepage.tpl
 Subdir=templates
 Match[class_identifier]=homepage
 
-[contact]
+[full_contact]
 Source=node/view/full.tpl
-MatchFile=contact.tpl
+MatchFile=full/contact.tpl
 Subdir=templates
 Match[class_identifier]=contact
 
-[fiche_pratique]
+[full_fiche_pratique]
 Source=node/view/full.tpl
-MatchFile=fiche_pratique.tpl
+MatchFile=full/fiche_pratique.tpl
 Subdir=templates
 Match[class_identifier]=fiche_pratique
+
+
+
 */ ?>
